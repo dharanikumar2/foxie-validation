@@ -37,6 +37,6 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         #download_file_from_directory("sample_file.csv")
     else:
         return func.HttpResponse(
-             "Please pass a command to execute the validation function",
+             "Please pass a command to execute the validation functio",
              status_code=200
         )
