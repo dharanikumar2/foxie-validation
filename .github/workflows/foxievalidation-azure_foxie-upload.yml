@@ -23,14 +23,14 @@ jobs:
       uses: docker/login-action@v1
       with:
         registry: https://foxie.azurecr.io/
-        username: ${{ secrets.AzureAppService_ContainerUsername_7aaac85cfdd5448884c10c1b626e3d2d }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_47804cae5c2949568eae8c94fc09ffb6 }}
+        username: ${{ secrets.AzureAppService_ContainerUsername_e6a083ff558142c483b3c28add6ecad8 }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_c01d965d1cc84cb3b053c2ada86742f1 }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: foxie.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_7aaac85cfdd5448884c10c1b626e3d2d }}/foxie-validation:${{ github.sha }}
+        tags: foxie.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_e6a083ff558142c483b3c28add6ecad8 }}/foxie-validation:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -47,5 +47,5 @@ jobs:
       with:
         app-name: 'foxie-upload'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_bb1166f99cad4ef58a344c7dedc5b0a2 }}
-        images: 'foxie.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_7aaac85cfdd5448884c10c1b626e3d2d }}/foxie-validation:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_bd0ef11f8472463dad46ee6f723ccec3 }}
+        images: 'foxie.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_e6a083ff558142c483b3c28add6ecad8 }}/foxie-validation:${{ github.sha }}'
